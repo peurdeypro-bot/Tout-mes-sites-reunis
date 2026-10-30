@@ -1,7 +1,3 @@
-[submodule ".Travail-sur-la-haie-pre-menu-20261030-104403"]
-	path = .Travail-sur-la-haie-pre-menu-20261030-104403
-	url = https://github.com/peurdeypro-bot/Travail-sur-la-haie.git
-
 [submodule "Travail-sur-la-haie"]
 	path = Travail-sur-la-haie
 	url = https://github.com/peurdeypro-bot/Travail-sur-la-haie.git
