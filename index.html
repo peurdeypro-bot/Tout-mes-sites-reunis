@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tous les projets de Justin Declemy réunis dans un même espace.">
+    <meta name="theme-color" content="#f2f0e9">
+    <title>Mes projets — Justin Declemy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="wordmark" href="#accueil" aria-label="Accueil, Mes projets">
+            <span class="wordmark-icon" aria-hidden="true">J<span>.</span></span>
+            <span>Justin Declemy<small>PROJETS &amp; IDÉES</small></span>
+        </a>
+        <a class="topbar-link" href="#projets">Explorer les projets <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main id="accueil">
+        <section class="intro" aria-labelledby="page-title">
+            <div class="intro-copy">
+                <p class="eyebrow"><span></span> MON ESPACE DE CRÉATION <span class="eyebrow-year">2026</span></p>
+                <h1 id="page-title">Mes projets,<br><em>à portée de clic.</em></h1>
+                <p class="intro-text">Des histoires, des idées et des sujets qui me tiennent à cœur. Tout ce que je crée, réuni au même endroit.</p>
+                <a class="intro-link" href="#projets">Découvrir les projets <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="intro-art" aria-hidden="true">
+                <span class="art-index">01 — 03</span>
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+                <div class="art-core">JD</div>
+                <span class="art-caption">Un espace<br>en mouvement</span>
+            </div>
+            <div class="intro-bottom"><span>POSSESION, LA RÉUNION</span><span>3 PROJETS · 3 UNIVERS</span></div>
+        </section>
+
+        <section class="projects" id="projets" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow"><span></span> LE PORTFOLIO</p>
+                    <h2 id="projects-title">À découvrir<span class="heading-period">.</span></h2>
+                </div>
+                <label class="search-box">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <input id="project-search" type="search" placeholder="Rechercher un projet" aria-label="Rechercher un projet">
+                    <kbd>/</kbd>
+                </label>
+            </div>
+
+            <div class="project-tools">
+                <div class="filters" role="group" aria-label="Filtrer les projets">
+                    <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tous <span>03</span></button>
+                    <button class="filter-button" type="button" data-filter="nature" aria-pressed="false">Nature</button>
+                    <button class="filter-button" type="button" data-filter="english" aria-pressed="false">English</button>
+                    <button class="filter-button" type="button" data-filter="fiction" aria-pressed="false">Fiction</button>
+                </div>
+                <p class="results-count" aria-live="polite"><span id="visible-count">03</span> projets</p>
+            </div>
+
+            <div class="project-grid" id="project-grid">
+                <a class="project-card card-climate" href="anglais-rechaufement-climatique/index.html" data-category="english" data-search="climate change réchauffement climatique anglais planète london courrier terre">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Montagnes couvertes de brume au lever du jour" loading="lazy">
+                        <span class="card-number">01</span>
+                        <span class="card-type">ANGLAIS · ENVIRONNEMENT</span>
+                        <span class="card-arrow" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="card-copy">
+                        <div class="card-title-row"><h3>Climate change</h3><span class="card-language">EN</span></div>
+                        <p>Un regard bilingue sur le réchauffement climatique et ses effets dans le monde.</p>
+                        <span class="card-cta">Lire le projet <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+
+                <a class="project-card card-haie" href="Travail-sur-la-haie/index.html" data-category="nature" data-search="haie végétaux biodiversité réunion paysage plantation corridor écologique">
+                    <div class="card-image">
+                        <img src="Travail-sur-la-haie/images/Strates%20v%C3%A9g%C3%A9tales%20de%20la%20for%C3%AAt.png" alt="Illustration des différentes strates de végétation d'une forêt" loading="lazy">
+                        <span class="card-number">02</span>
+                        <span class="card-type">PAYSAGE · BIODIVERSITÉ</span>
+                        <span class="card-arrow" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="card-copy">
+                        <div class="card-title-row"><h3>Planter une haie</h3><span class="card-language">974</span></div>
+                        <p>Concevoir une haie brise-vent et un corridor écologique à La Réunion.</p>
+                        <span class="card-cta">Voir l’étude <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+
+                <a class="project-card card-hero" href="travail-super-hero/index.html" data-category="fiction" data-search="réunionator super héros fiction saint leu mystère courrier">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Forêt dense et mystérieuse dans les hauts" loading="lazy">
+                        <span class="card-number">03</span>
+                        <span class="card-type">FICTION · SAINT-LEU</span>
+                        <span class="card-arrow" aria-hidden="true">↗</span>
+                    </div>
+                    <div class="card-copy">
+                        <div class="card-title-row"><h3>Le Réunionator</h3><span class="card-language">RÉCIT</span></div>
+                        <p>Une enquête dans les hauts de Saint-Leu autour d’un héros mystérieux.</p>
+                        <span class="card-cta">Ouvrir le récit <span aria-hidden="true">→</span></span>
+                    </div>
+                </a>
+            </div>
+
+            <p class="empty-state" id="empty-state" hidden>Aucun projet ne correspond à cette recherche.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="footer-mark" href="#accueil">JD<span>.</span></a>
+        <p>Un endroit pour rassembler ce qui m’inspire.</p>
+        <a class="back-top" href="#accueil">Retour en haut <span aria-hidden="true">↑</span></a>
+    </footer>
+</body>
+</html>
