@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f2">
+  <title>Mon espace scolaire</title>
+  <link rel="stylesheet" href="style.css?v=8">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#accueil" aria-label="Mon espace scolaire, accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h6M9 11h6"/></svg>
+        </span>
+        <span class="brand-name">Mon espace</span>
+      </a>
+      <div class="top-actions">
+        <span class="today" id="today-label"></span>
+        <button class="connect-button" id="open-login" type="button">Connecter Pronote</button>
+        <button class="disconnect-button" id="disconnect" type="button" hidden>Effacer les données</button>
+        <button class="add-widget-button" id="open-widget-library" type="button"><span aria-hidden="true">+</span> Ajouter un widget</button>
+        <button class="global-button" id="global-background-button" type="button" aria-label="Paramètres du fond global" aria-expanded="false" aria-controls="global-background-settings" title="Fond global">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m21 15-5-5L5 20"/></svg>
+        </button>
+        <button class="edit-button" id="edit-layout" type="button" aria-pressed="false" aria-label="Personnaliser l'agencement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5 4 4M4 20l4-.8L19.2 8a2.1 2.1 0 0 0-3-3L5 16.2 4 20Z"/><path d="M13 7l4 4"/></svg>
+          <span>Personnaliser</span>
+        </button>
+      </div>
+    </header>
+    <div class="global-settings" id="global-background-settings" hidden aria-label="Réglages du fond global"></div>
+
+    <section class="intro" id="accueil" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Lundi · Semaine 12</p>
+        <h1 id="page-title">Bonjour, Camille</h1>
+        <p class="intro-note">Voici ce qui se passe dans ta semaine.</p>
+      </div>
+      <div class="demo-badge" id="connection-badge"><span aria-hidden="true"></span>Données de démonstration</div>
+    </section>
+
+    <section class="widgets" id="widgets" aria-label="Widgets du tableau de bord">
+      <article class="widget schedule" draggable="false" data-widget="schedule" aria-labelledby="schedule-title">
+        <header class="widget-head">
+          <div class="widget-title-wrap">
+            <span class="widget-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h2M14 14h2M8 17h2"/></svg></span>
+            <div><h2 id="schedule-title">Emploi du temps</h2><p class="widget-meta" id="schedule-meta">Semaine du 16 au 20 mars</p></div>
+          </div>
+          <button class="widget-menu" type="button" data-settings-button aria-label="Paramètres de l'emploi du temps" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button>
+        </header>
+        <div class="widget-body">
+          <div class="week" id="schedule-demo-week" aria-hidden="true"><span></span><span class="day today-col">Lun 16</span><span class="day">Mar 17</span><span class="day">Mer 18</span><span class="day">Jeu 19</span><span class="day">Ven 20</span></div>
+          <div class="time-grid" id="schedule-demo-grid" aria-label="Cours de la semaine (exemple)">
+            <span class="time">8h</span><span class="time">9h</span><span class="time">10h</span><span class="time">11h</span>
+            <div class="lesson math"><strong>Mathématiques</strong><span>M. Bernard · B204</span></div>
+            <div class="lesson french"><strong>Français</strong><span>Mme Petit · A103</span></div>
+            <div class="lesson english"><strong>Anglais</strong><span>M. Thomas · C12</span></div>
+            <div class="lesson history"><strong>Histoire-géo</strong><span>Mme Lopez</span></div>
+            <div class="lesson physics"><strong>Physique</strong><span>M. Moreau</span></div>
+            <div class="lesson sport"><strong>EPS</strong><span>Gymnase</span></div>
+            <div class="lesson art"><strong>Arts plastiques</strong><span>Salle 14</span></div>
+          </div>
+          <div class="real-schedule" id="real-schedule" hidden></div>
+        </div>
+      </article>
+
+      <article class="widget grades" draggable="false" data-widget="grades" aria-labelledby="grades-title">
+        <header class="widget-head">
+          <div class="widget-title-wrap">
+            <span class="widget-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 6-7"/><path d="M16 6h4v4"/></svg></span>
+            <div><h2 id="grades-title">Notes</h2><p class="widget-meta" id="grades-period">Trimestre 2</p></div>
+          </div>
+          <button class="widget-menu" type="button" data-settings-button aria-label="Paramètres des notes" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button>
+        </header>
+        <div class="widget-body">
+          <div class="grade-summary"><span id="grade-summary-label">Moyenne générale</span><strong id="grade-summary-value">15,2<span style="font-size:12px;font-weight:600"> / 20</span></strong></div>
+          <div class="grade-list" id="grade-list">
+            <div class="grade-row"><span class="subject">Mathématiques</span><span class="grade-kind">Contrôle</span><span class="grade-value good">16,5</span></div>
+            <div class="grade-row"><span class="subject">Français</span><span class="grade-kind">Dissertation</span><span class="grade-value">14</span></div>
+            <div class="grade-row"><span class="subject">Anglais</span><span class="grade-kind">Oral</span><span class="grade-value good">17</span></div>
+            <div class="grade-row"><span class="subject">Histoire-géo</span><span class="grade-kind">Composition</span><span class="grade-value">13,5</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="widget homework" draggable="false" data-widget="homework" aria-labelledby="homework-title">
+        <header class="widget-head">
+          <div class="widget-title-wrap">
+            <span class="widget-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></span>
+            <div><h2 id="homework-title">Devoirs</h2><p class="widget-meta" id="homework-meta">3 devoirs à venir</p></div>
+          </div>
+          <button class="widget-menu" type="button" data-settings-button aria-label="Paramètres des devoirs" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button>
+        </header>
+        <div class="widget-body">
+          <div class="task-list" id="homework-list">
+            <label class="task"><input class="task-check" type="checkbox" aria-label="Marquer comme terminé : exercices de mathématiques"><span><span class="task-name">Exercices 12 à 18, page 146</span><span class="task-subject">Mathématiques</span></span><span class="due">Pour demain</span></label>
+            <label class="task"><input class="task-check" type="checkbox" aria-label="Marquer comme terminé : lecture en anglais"><span><span class="task-name">Lire le chapitre 4 et préparer 5 mots</span><span class="task-subject">Anglais</span></span><span class="due soon">Mercredi</span></label>
+            <label class="task"><input class="task-check" type="checkbox" aria-label="Marquer comme terminé : carte de géographie"><span><span class="task-name">Terminer la carte des régions</span><span class="task-subject">Histoire-géographie</span></span><span class="due">Vendredi</span></label>
+          </div>
+        </div>
+      </article>
+
+      <article class="widget agenda" draggable="false" data-widget="agenda" aria-labelledby="agenda-title">
+        <header class="widget-head">
+          <div class="widget-title-wrap">
+            <span class="widget-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/></svg></span>
+            <div><h2 id="agenda-title">Google Agenda</h2><p class="widget-meta">Connexion Google requise</p></div>
+          </div>
+          <button class="widget-menu" type="button" data-settings-button aria-label="Paramètres de Google Agenda" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button>
+        </header>
+        <div class="widget-body">
+          <div class="google-empty">
+            <p>Connecte-toi à Google pour afficher ton agenda ici.</p>
+            <button class="google-connect-button" id="google-connect" type="button">Se connecter à Google</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="widget documents" draggable="false" data-widget="documents" aria-labelledby="documents-title">
+        <header class="widget-head">
+          <div class="widget-title-wrap">
+            <span class="widget-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 10h18"/></svg></span>
+            <div><h2 id="documents-title">Mes Documents</h2><p class="widget-meta">Fichiers récents · exemples</p></div>
+          </div>
+          <button class="widget-menu" type="button" data-settings-button aria-label="Paramètres des documents" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button>
+        </header>
+        <div class="widget-body">
+          <div class="document"><span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span><span class="document-info"><strong>Fiche de révision - fractions.pdf</strong><span>Mathématiques · 14 mars</span></span></div>
+          <div class="document"><span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span><span class="document-info"><strong>Vocabulaire - Unit 5.pdf</strong><span>Anglais · 12 mars</span></span></div>
+          <div class="document"><span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span><span class="document-info"><strong>Carte des régions.png</strong><span>Histoire-géographie · 10 mars</span></span></div>
+        </div>
+      </article>
+
+      <article class="widget chart-widget" draggable="false" data-widget="grade-trend" aria-labelledby="grade-trend-title" hidden>
+        <header class="widget-head"><div class="widget-title-wrap"><span class="widget-icon chart-icon-line" aria-hidden="true">↗</span><div><h2 id="grade-trend-title">Courbe des notes</h2><p class="widget-meta">Évolution récente</p></div></div><button class="widget-menu" type="button" data-settings-button aria-label="Paramètres de la courbe des notes" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l-.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button></header>
+        <div class="widget-body chart-body" id="grade-trend-body"></div>
+      </article>
+
+      <article class="widget chart-widget" draggable="false" data-widget="grade-subject-bars" aria-labelledby="grade-subject-bars-title" hidden>
+        <header class="widget-head"><div class="widget-title-wrap"><span class="widget-icon chart-icon-bars" aria-hidden="true">▥</span><div><h2 id="grade-subject-bars-title">Moyenne par matière</h2><p class="widget-meta">Comparaison sur 20</p></div></div><button class="widget-menu" type="button" data-settings-button aria-label="Paramètres du diagramme par matière" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l-.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button></header>
+        <div class="widget-body chart-body" id="grade-subject-bars-body"></div>
+      </article>
+
+      <article class="widget chart-widget" draggable="false" data-widget="grade-percentage" aria-labelledby="grade-percentage-title" hidden>
+        <header class="widget-head"><div class="widget-title-wrap"><span class="widget-icon chart-icon-percent" aria-hidden="true">%</span><div><h2 id="grade-percentage-title">Moyenne en pourcentage</h2><p class="widget-meta">Sur 100 %</p></div></div><button class="widget-menu" type="button" data-settings-button aria-label="Paramètres du pourcentage" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l-.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button></header>
+        <div class="widget-body chart-body" id="grade-percentage-body"></div>
+      </article>
+
+      <article class="widget chart-widget" draggable="false" data-widget="grade-pie" aria-labelledby="grade-pie-title" hidden>
+        <header class="widget-head"><div class="widget-title-wrap"><span class="widget-icon chart-icon-pie" aria-hidden="true">◔</span><div><h2 id="grade-pie-title">Répartition des notes</h2><p class="widget-meta">Par matière</p></div></div><button class="widget-menu" type="button" data-settings-button aria-label="Paramètres du camembert" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l-.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V4a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2.9Z"/></svg></button></header>
+        <div class="widget-body chart-body" id="grade-pie-body"></div>
+      </article>
+    </section>
+  </main>
+  <dialog class="widget-library" id="widget-library" aria-labelledby="widget-library-title">
+    <div class="login-dialog-head"><div><p class="eyebrow">Personnalisation</p><h2 id="widget-library-title">Ajouter un widget</h2></div><button class="dialog-close" id="close-widget-library" type="button" aria-label="Fermer">×</button></div>
+    <p class="login-note">Les statistiques utilisent tes notes Pronote après connexion.</p>
+    <div class="widget-library-options">
+      <button class="widget-option" type="button" data-add-widget="grade-trend"><strong>Courbe des notes</strong><span>Évolution de tes dernières notes</span></button>
+      <button class="widget-option" type="button" data-add-widget="grade-subject-bars"><strong>Diagramme par matière</strong><span>Comparer tes moyennes</span></button>
+      <button class="widget-option" type="button" data-add-widget="grade-percentage"><strong>Pourcentage</strong><span>Visualiser ta moyenne sur 100 %</span></button>
+      <button class="widget-option" type="button" data-add-widget="grade-pie"><strong>Camembert</strong><span>Répartition des évaluations par matière</span></button>
+    </div>
+  </dialog>
+  <dialog class="login-dialog" id="login-dialog" aria-labelledby="login-title">
+    <div class="login-dialog-head">
+      <div><p class="eyebrow">Connexion temporaire</p><h2 id="login-title">Accéder à Pronote</h2></div>
+      <button class="dialog-close" id="close-login" type="button" aria-label="Fermer">×</button>
+    </div>
+    <p class="login-note">Les identifiants servent uniquement à cette récupération et ne sont pas enregistrés.</p>
+    <form class="login-form" id="login-form" autocomplete="off">
+      <label class="login-field">Adresse Pronote ou ENT
+        <input name="url" type="url" placeholder="https://…/pronote/eleve.html" autocomplete="url" required>
+      </label>
+      <label class="login-field">Fournisseur ENT
+        <select name="entProvider">
+          <option value="">Connexion directe à Pronote</option>
+          <option value="acReunion">Académie de La Réunion</option>
+          <option value="acRennes">Académie de Rennes</option>
+          <option value="acOrleansTours">Académie Orléans-Tours</option>
+          <option value="acPoitiers">Académie de Poitiers</option>
+          <option value="acReims">Académie de Reims</option>
+          <option value="atriumSud">Atrium Sud</option>
+          <option value="bordeaux">Bordeaux</option>
+          <option value="casAgora06">Agora 06</option>
+          <option value="casArsene76">Arsène 76</option>
+          <option value="casArsene76Edu">Arsène 76 ÉduConnect</option>
+          <option value="casCybercolleges42Edu">Cybercollèges 42</option>
+          <option value="casEnt27">ENT 27</option>
+          <option value="casKosmos">ENT Kosmos</option>
+          <option value="casSeinesaintdenisEdu">Seine-Saint-Denis</option>
+          <option value="eclatBfc">ÉCLAT-BFC</option>
+          <option value="ecollegeHauteGaronneEdu">eCollège Haute-Garonne</option>
+          <option value="ent77">ENT 77</option>
+          <option value="ent94">ENT 94</option>
+          <option value="entAuvergnerhonealpe">ENT Auvergne-Rhône-Alpes</option>
+          <option value="entCreuse">ENT Creuse</option>
+          <option value="entCreuseEduconnect">ENT Creuse ÉduConnect</option>
+          <option value="entEcollege78">eCollège 78</option>
+          <option value="entElyco">e-lyco</option>
+          <option value="entEssonne">ENT Essonne</option>
+          <option value="entHdf">ENT Hauts-de-France</option>
+          <option value="entMayotte">ENT Mayotte</option>
+          <option value="entSomme">ENT Somme</option>
+          <option value="entVar">ENT Var</option>
+          <option value="extranetCollegesSomme">Extranet collèges Somme</option>
+          <option value="ileDeFrance">Île-de-France</option>
+          <option value="lNormandie">L’ENT Normandie</option>
+          <option value="laclasseEduconnect">Laclasse ÉduConnect</option>
+          <option value="laclasseLyon">Laclasse Lyon</option>
+          <option value="lyceeconnecteAquitaine">Lycée connecté Aquitaine</option>
+          <option value="lyceeconnecteEdu">Lycée connecté</option>
+          <option value="monbureaunumerique">Mon Bureau Numérique</option>
+          <option value="neoconnectGuadeloupe">NéoConnect Guadeloupe</option>
+          <option value="occitanieMontpellier">Occitanie Montpellier</option>
+          <option value="occitanieMontpellierEduconnect">Occitanie Montpellier ÉduConnect</option>
+          <option value="occitanieToulouseEdu">Occitanie Toulouse ÉduConnect</option>
+          <option value="parisClasseNumerique">Paris Classe Numérique</option>
+          <option value="valDeMarne">Val-de-Marne</option>
+          <option value="valDoise">Val-d’Oise</option>
+        </select>
+      </label>
+      <label class="login-field">Identifiant
+        <input name="username" type="text" autocomplete="off" required>
+      </label>
+      <label class="login-field">Mot de passe
+        <input name="password" type="password" autocomplete="new-password" required>
+      </label>
+      <p class="login-status" id="login-status" role="status" aria-live="polite"></p>
+      <div class="login-actions">
+        <button class="cancel-button" id="cancel-login" type="button">Annuler</button>
+        <button class="submit-button" id="submit-login" type="submit">Récupérer mes données</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js?v=9" defer></script>
+</body>
+</html>
